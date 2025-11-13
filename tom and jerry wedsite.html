@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tom and Jerry | Version 0.1 (Development Build)</title>
+  <link rel="icon" href="tom and jerry logo.webp" type="image/webp">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow-x: hidden;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      background: url("tom and jerry background.jpg") no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    header {
+      text-align: center;
+      padding-top: 20px;
+    }
+
+    nav {
+      margin-top: 15px;
+    }
+
+    nav button {
+      color: white;
+      background: rgba(0,0,0,0.6);
+      border: none;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    nav button:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .logo {
+      width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 120vh;
+      padding-top: 30px;
+    }
+
+    section {
+      display: none;
+      text-align: center;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    iframe {
+      width: 80%;
+      height: 480px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+      margin-top: 40px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 150px;
+      font-size: 1.2em;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-top: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      iframe {
+        width: 95%;
+        height: 300px;
+      }
+      footer {
+        font-size: 1em;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img class="logo" src="tom and jerry logo.webp" alt="Tom and Jerry Logo">
+    <nav>
+      <button onclick="showSection('home')">Home</button>
+      <button onclick="showSection('videos')">Videos</button>
+      <button onclick="showSection('about')">About</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Home Section -->
+    <section id="home" class="active">
+      <iframe src="https://www.bing.com/videos/search?q=tom+and+jerry+1940&adlt=strict&view=detail&mid=2B9BAF73BD62F90C41282B9BAF73BD62F90C4128&FORM=VCGVRP"
+        title="Tom and Jerry 1940 Video" allowfullscreen></iframe>
+      <footer>More videos are coming soon...</footer>
+    </section>
+
+    <!-- Videos Section -->
+    <section id="videos">
+      <h2>Tom and Jerry Video Collection</h2>
+      <p>More episodes and classic moments are coming soon!</p>
+      <iframe src="https://www.bing.com/videos/search?q=tom+and+jerry+classic&view=detail&mid=F3E2C3A9B613A8F9A8A2F3E2C3A9B613A8F9A8A2&FORM=VIRE"
+        title="Tom and Jerry Classic Video" allowfullscreen></iframe>
+      <footer>Stay tuned for more Tom and Jerry fun!</footer>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2>About This Website</h2>
+      <p>This is a development version (0.1) of the Tom and Jerry website. It’s made for fun and learning purposes. More videos and features will be added soon!</p>
+      <footer>Tom and Jerry © 1940 - Present | Development Build</footer>
+    </section>
+  </main>
+
+  <script>
+    // Popup development message
+    window.onload = function() {
+      alert("Hello! This website is in development. You can check out one of the Tom and Jerry videos for now. More videos will be added soon!");
+    };
+
+    // Function to switch sections
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll("section");
+      sections.forEach(sec => sec.classList.remove("active"));
+      document.getElementById(sectionId).classList.add("active");
+
+      // Scroll back to top when switching sections
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>
